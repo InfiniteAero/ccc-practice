@@ -1,0 +1,15 @@
+for every item
+    set matches to false
+    for every box
+        set rotate count to 0
+        check dimensions
+        if too big
+            rotate item
+            increment rotate count by one
+            continue
+        else
+            print dimensions
+            break
+    if matches is false
+        print "Item does not fit"
+        

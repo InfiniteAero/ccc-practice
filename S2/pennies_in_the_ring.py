@@ -8,11 +8,10 @@ while True:
     points = 1
     if r != 0:
         for i in range(-r, r):
-            y = math.floor(math.sqrt((r ** 2) - (abs(i) ** 2)))
+            y = math.floor(math.sqrt((r**2) - (abs(i) ** 2)))
             points += y * 2 + 1
     else: break
     list_points.append(points)
 
 for point in list_points:
     print(point)
-    

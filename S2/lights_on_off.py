@@ -15,16 +15,15 @@ x = int(input())
 y = int(input())
 for i in range(x):
     rows.append(list(map(int, input().split())))
-rows.reverse()
 
 possible_rows = []
 for i in range(1, len(rows)):
-    possible_rows.append(rows[i])
+    if i == 1: possible_rows.append(rows[i-1])
+    temp_rows = []
     for row in possible_rows:
-        temp_rows = []
-        temp_rows.append(xor(rows[i], row, y))
-    for j in range(len(temp_rows)):
-        possible_rows.append(temp_rows[j])
+        temp_rows.append(xor(row, rows[i], y))
+    temp_rows.append(rows[i])
+    possible_rows = temp_rows
 
 final = []
 for i in possible_rows:

@@ -1,6 +1,6 @@
 # CCC 09 S2
 
-def xor(bottom: list, top: list, y: int):
+def xor(bottom: list, top: list, y: int) -> list:
     out = []
     for t in range(y):
         if bottom[t] != top[t]:
@@ -23,11 +23,12 @@ for i in range(1, len(rows)):
     for row in possible_rows:
         temp_rows = []
         temp_rows.append(xor(rows[i], row, y))
-    possible_rows.append(temp_rows)
+    for j in range(len(temp_rows)):
+        possible_rows.append(temp_rows[j])
 
 final = []
 for i in possible_rows:
     if i not in final:
         final.append(i)
 
-print(final)
+print(len(final))

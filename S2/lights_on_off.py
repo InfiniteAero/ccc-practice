@@ -17,4 +17,4 @@ for i in range(x):
     rows.append(list(map(int, input().split())))
 rows.reverse()
 
-for i i
+for i in range()

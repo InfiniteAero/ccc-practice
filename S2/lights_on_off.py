@@ -1,4 +1,4 @@
-# CCC 09 S2
+# CCC '09 S2
 
 def xor(bottom: list, top: list, y: int) -> list:
     out = []

@@ -1,3 +1,5 @@
+# CCC '10 J3
+
 import math
 
 a, b = 0, 0

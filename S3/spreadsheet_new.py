@@ -25,6 +25,11 @@ for row in range(len(spreadsheet)):
                 check_cell = convert_cell_to_index(cells_to_check[0])
                 if loop != 1:
                     visited_cells.append(cells_to_check[0])
+                    sanitized_visited_cells = []
+                    for _cell in visited_cells:
+                        if _cell not in sanitized_visited_cells:
+                            sanitized_visited_cells.append(_cell)
+                    visited_cells = list(sanitized_visited_cells)
                 try:
                     new_check_cells = spreadsheet[check_cell[0]][check_cell[1] - 1].split("+")
                     if new_check_cells == ["*"]:
@@ -34,7 +39,10 @@ for row in range(len(spreadsheet)):
                         if new_cell in visited_cells:
                             warn = True
                             break
-                        cells_to_check.append(new_cell)
+                        if len(new_cell) == 2:
+                            cells_to_check.append(new_cell)
+                        elif len(new_cell) == 1:
+                            cur_cell_value += int(new_cell)
                 except: # if cell only contains a numerical value
                     cur_cell_value += int(spreadsheet[check_cell[0]][check_cell[1] - 1])
                 # if infinitely looping break loop
